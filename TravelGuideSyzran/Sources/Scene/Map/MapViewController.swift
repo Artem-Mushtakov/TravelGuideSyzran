@@ -18,8 +18,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupConstraints()
-        navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Карты"
+        setupNavigationTitle()
     }
 
     // MARK: - View
@@ -42,5 +41,10 @@ class MapViewController: UIViewController {
             $0.leading.equalTo(10)
             $0.trailing.equalTo(-10)
         }
+    private func setupNavigationTitle() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        title = "Карты"
+    }
     }
 }
