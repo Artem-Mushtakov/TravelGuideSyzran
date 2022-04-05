@@ -20,6 +20,8 @@
 		AC6B113627FC28DB00744CE8 /* PopularPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B113527FC28DB00744CE8 /* PopularPresenter.swift */; };
 		AC6B113827FC28E600744CE8 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B113727FC28E600744CE8 /* FavoritesPresenter.swift */; };
 		AC6B113C27FC299700744CE8 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B113B27FC299700744CE8 /* ModuleBuilder.swift */; };
+		AC6B113F27FC303000744CE8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AC6B113E27FC303000744CE8 /* SnapKit */; };
+		AC6B114227FC305600744CE8 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = AC6B114127FC305600744CE8 /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC6B113F27FC303000744CE8 /* SnapKit in Frameworks */,
+				AC6B114227FC305600744CE8 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +188,10 @@
 			dependencies = (
 			);
 			name = TravelGuideSyzran;
+			packageProductDependencies = (
+				AC6B113E27FC303000744CE8 /* SnapKit */,
+				AC6B114127FC305600744CE8 /* Then */,
+			);
 			productName = TravelGuideSyzran;
 			productReference = AC6B110A27FC25F500744CE8 /* TravelGuideSyzran.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +220,10 @@
 				Base,
 			);
 			mainGroup = AC6B110127FC25F500744CE8;
+			packageReferences = (
+				AC6B113D27FC303000744CE8 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				AC6B114027FC305600744CE8 /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = AC6B110B27FC25F500744CE8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -458,6 +470,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AC6B113D27FC303000744CE8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		AC6B114027FC305600744CE8 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AC6B113E27FC303000744CE8 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC6B113D27FC303000744CE8 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		AC6B114127FC305600744CE8 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC6B114027FC305600744CE8 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AC6B110227FC25F500744CE8 /* Project object */;
 }
