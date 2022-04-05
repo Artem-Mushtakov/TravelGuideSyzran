@@ -22,6 +22,7 @@
 		AC6B113C27FC299700744CE8 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B113B27FC299700744CE8 /* ModuleBuilder.swift */; };
 		AC6B113F27FC303000744CE8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AC6B113E27FC303000744CE8 /* SnapKit */; };
 		AC6B114227FC305600744CE8 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = AC6B114127FC305600744CE8 /* Then */; };
+		AC6B114527FC4DA300744CE8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC6B114427FC4DA300744CE8 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		AC6B113527FC28DB00744CE8 /* PopularPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularPresenter.swift; sourceTree = "<group>"; };
 		AC6B113727FC28E600744CE8 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		AC6B113B27FC299700744CE8 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
+		AC6B114427FC4DA300744CE8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC6B113F27FC303000744CE8 /* SnapKit in Frameworks */,
+				AC6B114527FC4DA300744CE8 /* MapKit.framework in Frameworks */,
 				AC6B114227FC305600744CE8 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,6 +63,7 @@
 			children = (
 				AC6B110C27FC25F500744CE8 /* TravelGuideSyzran */,
 				AC6B110B27FC25F500744CE8 /* Products */,
+				AC6B114327FC4DA300744CE8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -170,6 +174,14 @@
 				AC6B112327FC263900744CE8 /* Scene */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		AC6B114327FC4DA300744CE8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC6B114427FC4DA300744CE8 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
