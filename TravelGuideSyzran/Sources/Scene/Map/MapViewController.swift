@@ -12,5 +12,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Карты"
     }
 }

@@ -25,26 +25,22 @@ class ModuleBuilder: Builder {
     }
 
     static func createMainModule() -> UIViewController {
-        let view = MainViewController()
-        view.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
+        let view = UINavigationController(rootViewController: MainViewController())
         return view
     }
 
     static func createMapModule() -> UIViewController {
-        let view = MapViewController()
-        view.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
+        let view = UINavigationController(rootViewController: MapViewController())
         return view
     }
 
     static func createPopularModule() -> UIViewController {
-        let view = PopularViewController()
-        view.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 2)
+        let view = UINavigationController(rootViewController: PopularViewController())
         return view
     }
 
     static func createFavoritesModule() -> UIViewController {
-        let view = FavoritesViewController()
-        view.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 3)
+        let view = UINavigationController(rootViewController: FavoritesViewController())
         return view
     }
 }
