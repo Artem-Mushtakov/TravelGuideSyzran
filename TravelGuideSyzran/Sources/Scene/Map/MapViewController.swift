@@ -10,11 +10,12 @@ import MapKit
 import Then
 import SnapKit
 
-class MapViewController: UIViewController {
+final class MapViewController: UIViewController, MapPresenterOutputProtocol {
     
     // MARK: - Properties
-    
-    private let locationManager = CLLocationManager()
+
+    var  presenter: MapPresenter?
+    fileprivate var locationManager = CLLocationManager()
 
     // MARK: - Life cycle
     
@@ -27,12 +28,13 @@ class MapViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        checkLocationEnable()
+        guard let presenterLocationManager = presenter?.locationManager else { return }
+        locationManager = presenterLocationManager
     }
     
     // MARK: - UIElements
     
-    private lazy var mapView = MKMapView().then {
+    internal lazy var mapView = MKMapView().then {
         $0.layer.cornerRadius = 10
     }
 
@@ -43,12 +45,12 @@ class MapViewController: UIViewController {
     
     // MARK: - Setup view
     
-    private func setupView() {
+    fileprivate func setupView() {
         view.addSubview(mapView)
         mapView.addSubview(myGeolocationButton)
     }
     
-    private func setupConstraints() {
+    fileprivate func setupConstraints() {
         
         mapView.snp.makeConstraints {
             $0.top.equalTo(view.snp_topMargin).offset(10)
@@ -63,55 +65,15 @@ class MapViewController: UIViewController {
         }
     }
 
-    private func setupNavigationTitle() {
+    fileprivate func setupNavigationTitle() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         title = "Карты"
     }
 
-    // MARK: - Setup Location
-
-    private func setupLocationManager() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-    }
-
-    // Функция использования геопозиции
-    private func checkLocationEnable() {
-        if CLLocationManager.locationServicesEnabled() {
-            setupLocationManager()
-            checkLocationAuthUser(locationManager: locationManager, mapView: mapView)
-        } else {
-            showAlertLocation(title: "У Вас выключена геолокация",
-                              message: "Хотите включить?",
-                              url: "App-Prefs:root=LOCATION_SERVICES")
-        }
-    }
-
-    // Функция разрешения геопозиции пользователя
-    private func checkLocationAuthUser(locationManager: CLLocationManager, mapView: MKMapView) {
-
-        // Статусы состояния геопозиции вкл/выкл
-        switch locationManager.authorizationStatus {
-        case .restricted, .authorizedAlways:
-            break
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-        case .authorizedWhenInUse:
-            mapView.showsUserLocation = true
-            locationManager.startUpdatingLocation()
-        case .denied:
-            showAlertLocation(title: "Вы запретили использование местоположения",
-                              message: "Хотите разрешить?",
-                              url: UIApplication.openSettingsURLString)
-        default:
-            fatalError()
-        }
-    }
-
     // MARK: - Setup Alert
 
-    private func showAlertLocation(title: String, message: String?, url: String) {
+    func showAlertLocation(title: String, message: String?, url: String) {
 
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
@@ -141,6 +103,6 @@ extension MapViewController: CLLocationManagerDelegate {
     }
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkLocationAuthUser(locationManager: manager, mapView: mapView)
+        presenter?.checkLocationAuthUser(locationManager: self.locationManager, mapView: self.mapView)
     }
 }

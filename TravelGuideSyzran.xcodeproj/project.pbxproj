@@ -23,6 +23,7 @@
 		AC6B113F27FC303000744CE8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AC6B113E27FC303000744CE8 /* SnapKit */; };
 		AC6B114227FC305600744CE8 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = AC6B114127FC305600744CE8 /* Then */; };
 		AC6B114527FC4DA300744CE8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC6B114427FC4DA300744CE8 /* MapKit.framework */; };
+		AC6B114727FCC71F00744CE8 /* MapPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B114627FCC71F00744CE8 /* MapPresenterProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		AC6B113727FC28E600744CE8 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		AC6B113B27FC299700744CE8 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		AC6B114427FC4DA300744CE8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AC6B114627FCC71F00744CE8 /* MapPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenterProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			children = (
 				AC6B112B27FC288800744CE8 /* MapViewController.swift */,
 				AC6B113327FC28CE00744CE8 /* MapPresenter.swift */,
+				AC6B114627FCC71F00744CE8 /* MapPresenterProtocol.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				AC6B112A27FC287C00744CE8 /* MainViewController.swift in Sources */,
 				AC6B112E27FC289700744CE8 /* PopularViewController.swift in Sources */,
 				AC6B113C27FC299700744CE8 /* ModuleBuilder.swift in Sources */,
+				AC6B114727FCC71F00744CE8 /* MapPresenterProtocol.swift in Sources */,
 				AC6B111227FC25F500744CE8 /* TabBarController.swift in Sources */,
 				AC6B113427FC28CE00744CE8 /* MapPresenter.swift in Sources */,
 				AC6B110E27FC25F500744CE8 /* AppDelegate.swift in Sources */,

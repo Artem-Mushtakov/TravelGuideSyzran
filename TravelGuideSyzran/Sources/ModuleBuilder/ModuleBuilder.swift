@@ -30,7 +30,11 @@ class ModuleBuilder: Builder {
     }
 
     static func createMapModule() -> UIViewController {
-        let view = UINavigationController(rootViewController: MapViewController())
+        let viewController = MapViewController()
+        let presenter = MapPresenter(view: viewController)
+        viewController.presenter = presenter
+        let view = UINavigationController(rootViewController: viewController)
+
         return view
     }
 
