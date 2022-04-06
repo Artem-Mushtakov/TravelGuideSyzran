@@ -8,24 +8,24 @@
 import Foundation
 import MapKit
 
-final class MapPresenter: MapPresenterInputProtocol {
+final class MapPresenter: NSObject, MapPresenterInputProtocol {
 
     // MARK: Properties
 
     private weak var view: MapPresenterOutputProtocol?
-    var locationManager: CLLocationManager?
 
     required init(view: MapPresenterOutputProtocol) {
+        super.init()
         self.view = view
-        setupLocationManager()
-        checkLocationEnable()
+        self.setupLocationManager()
+        self.checkLocationEnable()
     }
 
     // MARK: - Setup Location
 
     fileprivate func setupLocationManager() {
-        guard let locationManager = locationManager else { return }
-        locationManager.delegate = view.self as? CLLocationManagerDelegate
+        guard let locationManager = view?.locationManager else { return }
+        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
 
@@ -34,7 +34,7 @@ final class MapPresenter: MapPresenterInputProtocol {
         if CLLocationManager.locationServicesEnabled() {
             setupLocationManager()
             guard let mapView = view?.mapView else { return }
-            guard let locationManager = locationManager else { return }
+            guard let locationManager = view?.locationManager else { return }
             checkLocationAuthUser(locationManager: locationManager, mapView: mapView)
         } else {
             view?.showAlertLocation(title: "У Вас выключена геолокация",
@@ -62,5 +62,23 @@ final class MapPresenter: MapPresenterInputProtocol {
         default:
             fatalError()
         }
+    }
+}
+
+extension MapPresenter: CLLocationManagerDelegate {
+
+    // Обновление карты что бы следить за пользователем
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last?.coordinate {
+            let region = MKCoordinateRegion(center: location, latitudinalMeters: 10000, longitudinalMeters: 10000)
+            guard let mapView = view?.mapView else { return }
+            mapView.setRegion(region, animated: true)
+        }
+    }
+
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        guard let locationManager = view?.locationManager else { return }
+        guard let mapView = view?.mapView else { return }
+        checkLocationAuthUser(locationManager: locationManager, mapView: mapView)
     }
 }

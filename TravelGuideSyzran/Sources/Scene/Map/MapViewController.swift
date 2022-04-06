@@ -11,11 +11,11 @@ import Then
 import SnapKit
 
 final class MapViewController: UIViewController, MapPresenterOutputProtocol {
-    
+
     // MARK: - Properties
 
-    var  presenter: MapPresenter?
-    fileprivate var locationManager = CLLocationManager()
+    var presenter: MapPresenter?
+    var locationManager = CLLocationManager()
 
     // MARK: - Life cycle
     
@@ -24,12 +24,11 @@ final class MapViewController: UIViewController, MapPresenterOutputProtocol {
         setupView()
         setupConstraints()
         setupNavigationTitle()
+        locationManager.delegate = presenter
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard let presenterLocationManager = presenter?.locationManager else { return }
-        locationManager = presenterLocationManager
     }
     
     // MARK: - UIElements
@@ -87,22 +86,5 @@ final class MapViewController: UIViewController, MapPresenterOutputProtocol {
         alert.addAction(settingsAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
-    }
-}
-
-    // MARK: - Setup Location delegate
-
-extension MapViewController: CLLocationManagerDelegate {
-
-    // Обновление карты что бы следить за пользователем
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last?.coordinate {
-            let region = MKCoordinateRegion(center: location, latitudinalMeters: 10000, longitudinalMeters: 10000)
-            mapView.setRegion(region, animated: true)
-        }
-    }
-
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        presenter?.checkLocationAuthUser(locationManager: self.locationManager, mapView: self.mapView)
     }
 }

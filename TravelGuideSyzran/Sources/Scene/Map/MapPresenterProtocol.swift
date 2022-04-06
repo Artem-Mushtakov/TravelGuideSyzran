@@ -10,10 +10,10 @@ import MapKit
 
 protocol MapPresenterOutputProtocol: AnyObject {
     var mapView: MKMapView { get set }
+    var locationManager: CLLocationManager { get set }
     func showAlertLocation(title: String, message: String?, url: String)
 }
 
 protocol MapPresenterInputProtocol {
-    var locationManager: CLLocationManager? { get set }
     init(view: MapPresenterOutputProtocol)
 }
