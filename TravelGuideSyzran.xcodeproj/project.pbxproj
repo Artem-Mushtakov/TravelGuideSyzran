@@ -24,6 +24,8 @@
 		AC6B114227FC305600744CE8 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = AC6B114127FC305600744CE8 /* Then */; };
 		AC6B114527FC4DA300744CE8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC6B114427FC4DA300744CE8 /* MapKit.framework */; };
 		AC6B114727FCC71F00744CE8 /* MapPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B114627FCC71F00744CE8 /* MapPresenterProtocol.swift */; };
+		AC6B114C27FDC1F900744CE8 /* MainPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B114B27FDC1F900744CE8 /* MainPresenterProtocol.swift */; };
+		AC7DAC1627FE0383006E0680 /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7DAC1527FE0383006E0680 /* MainViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		AC6B113B27FC299700744CE8 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		AC6B114427FC4DA300744CE8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AC6B114627FCC71F00744CE8 /* MapPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenterProtocol.swift; sourceTree = "<group>"; };
+		AC6B114B27FDC1F900744CE8 /* MainPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterProtocol.swift; sourceTree = "<group>"; };
+		AC7DAC1527FE0383006E0680 /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +124,10 @@
 		AC6B112427FC26CB00744CE8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				AC7DAC1427FE0374006E0680 /* Views */,
 				AC6B112927FC287C00744CE8 /* MainViewController.swift */,
 				AC6B113127FC28B800744CE8 /* MainPresenter.swift */,
+				AC6B114B27FDC1F900744CE8 /* MainPresenterProtocol.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -185,6 +191,14 @@
 				AC6B114427FC4DA300744CE8 /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC7DAC1427FE0374006E0680 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AC7DAC1527FE0383006E0680 /* MainViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,10 +279,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC6B114C27FDC1F900744CE8 /* MainPresenterProtocol.swift in Sources */,
 				AC6B113827FC28E600744CE8 /* FavoritesPresenter.swift in Sources */,
 				AC6B113627FC28DB00744CE8 /* PopularPresenter.swift in Sources */,
 				AC6B112A27FC287C00744CE8 /* MainViewController.swift in Sources */,
 				AC6B112E27FC289700744CE8 /* PopularViewController.swift in Sources */,
+				AC7DAC1627FE0383006E0680 /* MainViewCell.swift in Sources */,
 				AC6B113C27FC299700744CE8 /* ModuleBuilder.swift in Sources */,
 				AC6B114727FCC71F00744CE8 /* MapPresenterProtocol.swift in Sources */,
 				AC6B111227FC25F500744CE8 /* TabBarController.swift in Sources */,
