@@ -39,7 +39,8 @@ final class MapViewController: UIViewController, MapPresenterOutputProtocol {
 
     private lazy var myGeolocationButton = UIButton().then {
         $0.setImage(UIImage(systemName: "paperplane.fill"), for: .normal)
-        $0.tintColor = .purple
+        $0.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(pointSize: 30), forImageIn: .normal)
+        $0.tintColor = .gray
         $0.addTarget(self, action: #selector(centerMapOnUserButtonClicked), for: .touchUpInside)
     }
 
@@ -66,7 +67,7 @@ final class MapViewController: UIViewController, MapPresenterOutputProtocol {
         }
 
         myGeolocationButton.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(10)
+            $0.bottom.equalToSuperview().offset(-35)
             $0.trailing.equalToSuperview().offset(-10)
         }
     }
